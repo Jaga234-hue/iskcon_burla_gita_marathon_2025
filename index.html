@@ -1,0 +1,1405 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ISKCON Burla | 5000+ Bhagavad Gita Distribution</title>
+    <style>
+        :root {
+            --iskcon-orange: #FF6600;
+            --iskcon-blue: #3366CC;
+            --iskcon-gold: #FFD700;
+            --iskcon-maroon: #800000;
+            --dark-bg: #1a1a2e;
+        }
+
+        .logo-imge {
+            font-family: 'Georgia', serif;
+            font-size: 36px;
+            font-weight: bold;
+            color: gold;
+            text-align: center;
+            padding: 15px 30px;
+            border-radius: 12px;
+            background: radial-gradient(circle, #2c1a00, #000);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+            letter-spacing: 2px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent;
+            touch-action: manipulation;
+        }
+
+        body,
+        html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Arial', 'Helvetica', sans-serif;
+            background: var(--dark-bg);
+            position: fixed;
+        }
+
+        /* SCREEN 1: INTRO */
+        #screen-1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            position: relative;
+            overflow: hidden;
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .intro-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background:
+                radial-gradient(circle at 20% 80%, rgba(255, 102, 0, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(51, 102, 204, 0.1) 0%, transparent 50%);
+            z-index: 0;
+        }
+
+        .header-logo {
+            position: absolute;
+            top: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2;
+        }
+
+        .logo-img {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(45deg, var(--iskcon-orange), var(--iskcon-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 10px;
+            box-shadow: 0 0 30px rgba(255, 102, 0, 0.5);
+            border: 3px solid white;
+        }
+
+        .logo-img::before {
+            content: "ॐ";
+            font-size: 40px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .iskcon-name {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .iskcon-burla {
+            color: var(--iskcon-gold);
+            font-size: 18px;
+            margin-top: 5px;
+            letter-spacing: 1px;
+        }
+
+        .intro-title {
+            color: white;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+            z-index: 1;
+            padding: 0 20px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            max-width: 90%;
+        }
+
+        .highlight {
+            color: var(--iskcon-gold);
+            font-weight: bold;
+        }
+
+        .btn-click-me {
+            padding: 20px 50px;
+            font-size: 24px;
+            font-weight: bold;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, var(--iskcon-orange), var(--iskcon-maroon));
+            color: white;
+            cursor: pointer;
+            animation: pulse 1.5s infinite, float 3s infinite ease-in-out;
+            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+            z-index: 1;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .btn-click-me::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            transition: 0.5s;
+        }
+
+        .btn-click-me:hover::before {
+            left: 100%;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+            }
+
+            50% {
+                transform: scale(1.05);
+                box-shadow: 0 15px 40px rgba(255, 102, 0, 0.6);
+            }
+
+            100% {
+                transform: scale(1);
+                box-shadow: 0 10px 30px rgba(255, 102, 0, 0.4);
+            }
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        /* SCREEN 2: MAIN CELEBRATION */
+        #screen-2 {
+            display: none;
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(180deg, #0c2461 0%, #1e3799 30%, #4a69bd 100%);
+            opacity: 0;
+            overflow: hidden;
+            transition: opacity 0.8s ease;
+        }
+
+        .main-header {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            border-bottom: 3px solid var(--iskcon-gold);
+            backdrop-filter: blur(5px);
+        }
+
+        .header-content {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .header-logo-small {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(45deg, var(--iskcon-orange), var(--iskcon-gold));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid white;
+        }
+
+        .header-logo-small::before {
+            content: "ॐ";
+            font-size: 24px;
+            color: white;
+            font-weight: bold;
+        }
+
+        .header-text {
+            color: white;
+            text-align: center;
+        }
+
+        .header-text h1 {
+            font-size: 20px;
+            margin-bottom: 2px;
+            color: var(--iskcon-gold);
+        }
+
+        .header-text h2 {
+            font-size: 14px;
+            color: #fff;
+            font-weight: normal;
+        }
+
+        /* Main Container */
+        .main-container {
+            position: absolute;
+            top: 90px;
+            left: 5%;
+            width: 90%;
+            height: calc(100% - 160px);
+            border: 4px solid var(--iskcon-gold);
+            background: rgba(0, 0, 0, 0.3);
+            overflow: hidden;
+            border-radius: 15px;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+        }
+
+        /* Celebration Area */
+        .celebration-area {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        /* Big Green Arrow */
+        .big-arrow-container {
+            position: absolute;
+            top: 10px;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            z-index: 20;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .big-arrow {
+            width: 80%;
+            height: 8px;
+            background: linear-gradient(90deg, #00ff00, #00cc00);
+            position: relative;
+            border-radius: 4px;
+            box-shadow: 0 0 15px rgba(0, 255, 0, 0.7);
+        }
+
+        .big-arrow::after {
+            content: '';
+            position: absolute;
+            right: -15px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 0;
+            height: 0;
+            border-left: 20px solid #00cc00;
+            border-top: 15px solid transparent;
+            border-bottom: 15px solid transparent;
+        }
+
+        .arrow-label {
+            position: absolute;
+            top: -25px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: #00ff00;
+            font-weight: bold;
+            font-size: 14px;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+        }
+
+        /* Image Canvas */
+        #image-canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        .falling-img {
+            position: absolute;
+            width: 70px;
+            /* Increased size */
+            height: 70px;
+            /* Increased size */
+            object-fit: cover;
+            border-radius: 8px;
+            will-change: transform;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.2s, opacity 0.5s;
+        }
+
+        /* Slot Machine Counter */
+        .counter-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            gap: 8px;
+            z-index: 30;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 20px;
+            border-radius: 15px;
+            border: 3px solid var(--iskcon-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            min-width: 260px;
+        }
+
+        .counter-title {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            width: 100%;
+            text-align: center;
+            color: var(--iskcon-gold);
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .digit-box {
+            width: 50px;
+            height: 70px;
+            background: #000;
+            color: white;
+            overflow: hidden;
+            position: relative;
+            border: 2px solid #444;
+            border-radius: 5px;
+        }
+
+        .active-digit {
+            border-color: var(--iskcon-gold);
+            box-shadow: 0 0 15px var(--iskcon-gold);
+            transform: translateY(-5px);
+        }
+
+        .digit-strip {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+        }
+
+        .digit {
+            height: 70px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 36px;
+            font-weight: bold;
+            font-family: 'Courier New', monospace;
+        }
+
+        .small-arrow {
+            position: absolute;
+            top: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #00ff00;
+            font-size: 20px;
+            font-weight: bold;
+            animation: bounce 0.8s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateX(-50%) translateY(0);
+            }
+
+            50% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Floating Elements */
+        .floating-element {
+            position: absolute;
+            z-index: 5;
+            opacity: 0.7;
+        }
+
+        .floating-om {
+            font-size: 30px;
+            color: var(--iskcon-gold);
+            animation: floatAround 20s infinite linear;
+        }
+
+        @keyframes floatAround {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+
+            25% {
+                transform: translate(100px, 50px) rotate(90deg);
+            }
+
+            50% {
+                transform: translate(50px, 100px) rotate(180deg);
+            }
+
+            75% {
+                transform: translate(-50px, 50px) rotate(270deg);
+            }
+
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* Final Message */
+        #final-message {
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 1s ease;
+            padding: 0 20px;
+            z-index: 40;
+        }
+
+        .congrats-box {
+            background: rgba(0, 0, 0, 0.85);
+            border-radius: 15px;
+            padding: 25px;
+            border: 3px solid var(--iskcon-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .congrats-text {
+            color: var(--iskcon-gold);
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+        }
+
+        .count-text {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .sub-text {
+            color: #ddd;
+            font-size: 16px;
+            line-height: 1.4;
+        }
+
+        /* Rockets */
+        .rocket {
+            position: absolute;
+            bottom: -100px;
+            width: 40px;
+            height: 100px;
+            z-index: 25;
+            opacity: 0;
+        }
+
+        .rocket-body {
+            width: 100%;
+            height: 80%;
+            background: linear-gradient(180deg, #FF6600, #FF3300);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+        }
+
+        .rocket-fin {
+            position: absolute;
+            bottom: 0;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 30px solid #FF3300;
+        }
+
+        .rocket-fire {
+            position: absolute;
+            bottom: -30px;
+            left: 5px;
+            width: 30px;
+            height: 40px;
+            background: linear-gradient(180deg, #FFD700, #FF6600, #FF0000);
+            border-radius: 50%;
+            filter: blur(5px);
+            animation: firePulse 0.3s infinite;
+        }
+
+        @keyframes firePulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+                opacity: 0.8;
+            }
+
+            50% {
+                transform: scale(1.2);
+                opacity: 1;
+            }
+        }
+
+        /* Confetti */
+        .confetti {
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            z-index: 10;
+            opacity: 0;
+        }
+
+        /* Glow Effect */
+        .glow {
+            animation: glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+            from {
+                box-shadow: 0 0 10px var(--iskcon-gold), 0 0 20px var(--iskcon-gold);
+            }
+
+            to {
+                box-shadow: 0 0 20px var(--iskcon-gold), 0 0 30px var(--iskcon-gold), 0 0 40px var(--iskcon-gold);
+            }
+        }
+
+        /* Sound Toggle */
+        .sound-toggle {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            width: 40px;
+            height: 40px;
+            background: rgba(0, 0, 0, 0.5);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+            z-index: 200;
+            border: 2px solid var(--iskcon-gold);
+        }
+
+        /* Decorative Elements */
+        .decorative-border {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .border-top {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, transparent, var(--iskcon-gold), transparent);
+        }
+
+        .border-bottom {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 10px;
+            background: linear-gradient(90deg, transparent, var(--iskcon-gold), transparent);
+        }
+
+        /* Hidden class */
+        .hidden {
+            display: none !important;
+        }
+
+        .visible {
+            opacity: 1 !important;
+        }
+
+        /* ================= SCREEN 1 ================= */
+        #screen-1 {
+            position: relative;
+            height: 100vh;
+            width: 100%;
+            overflow: hidden;
+            background: radial-gradient(circle at top, #1a0a00, #000);
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* ===== Animated Background ===== */
+        .intro-bg {
+            position: absolute;
+            inset: 0;
+            background:
+                radial-gradient(circle, rgba(255, 200, 0, 0.15), transparent 60%),
+                url('https://images.unsplash.com/photo-1608889175123-8ee1d3d3f5a9');
+            background-size: cover;
+            background-position: center;
+            filter: brightness(0.45) blur(1px);
+            z-index: 0;
+        }
+
+        /* ================= HEADER LOGO ================= */
+        .header-logo {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            margin-bottom: 25px;
+        }
+
+        /* Hare Krishna Text */
+        .logo-imge {
+            font-size: 42px;
+            font-weight: 800;
+            letter-spacing: 4px;
+            font-family: 'Cinzel', serif;
+            background: linear-gradient(90deg, #ffd700, #ff9800, #ffd700);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glowText 2s infinite alternate;
+        }
+
+        /* ISKCON */
+        .iskcon-name {
+            font-size: 26px;
+            font-weight: bold;
+            letter-spacing: 6px;
+            color: #ffffff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+        }
+
+        /* BURLA */
+        .iskcon-burla {
+            font-size: 22px;
+            letter-spacing: 8px;
+            color: #ffcc66;
+        }
+
+        /* ================= TITLES ================= */
+        .intro-title {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            font-size: 56px;
+            font-weight: 900;
+            margin: 20px 0;
+            text-transform: uppercase;
+            background: linear-gradient(90deg, #ffdd00, #ff5722);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(255, 140, 0, 0.7);
+        }
+
+        h2 {
+            position: relative;
+            z-index: 2;
+            max-width: 720px;
+            text-align: center;
+            font-size: 20px;
+            color: #f5f5f5;
+            margin-bottom: 30px;
+        }
+
+        /* ================= BUTTON ================= */
+        .btn-click-me {
+            position: relative;
+            z-index: 2;
+            padding: 16px 50px;
+            font-size: 18px;
+            font-weight: bold;
+            letter-spacing: 3px;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            background: linear-gradient(45deg, #ff9800, #ff5722);
+            color: #fff;
+            box-shadow: 0 0 25px rgba(255, 120, 0, 0.8);
+            animation: pulseBtn 1.8s infinite;
+            transition: transform 0.3s ease;
+        }
+
+        .btn-click-me:hover {
+            transform: scale(1.12);
+        }
+
+        /* ================= FLOATING ELEMENTS ================= */
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.35;
+            animation: floatUp 10s infinite linear;
+            user-select: none;
+        }
+
+        /* ================= ANIMATIONS ================= */
+        @keyframes glowText {
+            from {
+                text-shadow: 0 0 10px gold;
+            }
+
+            to {
+                text-shadow: 0 0 30px orange, 0 0 60px gold;
+            }
+        }
+
+        @keyframes pulseBtn {
+            0% {
+                box-shadow: 0 0 10px #ff9800;
+            }
+
+            50% {
+                box-shadow: 0 0 35px #ff5722;
+            }
+
+            100% {
+                box-shadow: 0 0 10px #ff9800;
+            }
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(0);
+            }
+
+            100% {
+                transform: translateY(-120px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- SCREEN 1: INTRO -->
+    <div id="screen-1">
+        <div class="intro-bg"></div>
+
+        <div class="header-logo">
+            <div class="logo-imge">Hare Krishna</div>
+            <div class="iskcon-name">ISKCON</div>
+            <div class="iskcon-burla">BURLA</div>
+        </div>
+
+        <h1 class="intro-title"><span class="highlight"></span><br>Gita marathon 2025</h1>
+        <h2>TO see the final details of book marathon 2025 click below</h2>
+        <button class="btn-click-me" onclick="startExperience()">CLICK</button>
+
+        <!-- Decorative elements -->
+        <div class="floating-element" style="top:30%; left:10%; font-size:40px;">༒ 𝙷𝙰𝚁𝙴 𝙺𝚁𝙸𝚂𝙷𝙽𝙰 ༒</div>
+        <div class="floating-element" style="top:60%; left:80%; font-size:70px;">📿</div>
+    </div>
+
+    <!-- SCREEN 2: MAIN CELEBRATION -->
+    <div id="screen-2">
+        <div class="sound-toggle">📿</div>
+
+        <div class="main-header">
+            <div class="header-content">
+                <div class="sound-toggle">📿</div>
+                <div class="header-text">
+                    <h1>ISKCON BURLA</h1>
+                    <h2>Bhagavad Gita Marathon Celebration</h2>
+                </div>
+                
+            </div>
+        </div>
+
+        <div class="main-container">
+            <div class="decorative-border">
+                <div class="border-top"></div>
+                <div class="border-bottom"></div>
+            </div>
+
+            <div class="big-arrow-container">
+                <div class="big-arrow">
+                    <div class="arrow-label">5062+ BOOKS DISTRIBUTED</div>
+                </div>
+            </div>
+
+            <div class="celebration-area">
+                <div id="image-canvas"></div>
+
+                <!-- Floating decorative elements -->
+                <div class="floating-element floating-om" style="top:20%; left:10%;">📿</div>
+                <div class="floating-element floating-om" style="top:70%; left:85%;">༒ 𝙷𝙰𝚁𝙴 𝙺𝚁𝙸𝚂𝙷𝙽𝙰 ༒</div>
+                <div class="floating-element floating-om" style="top:40%; left:80%;">🙏</div>
+                <div class="floating-element floating-om" style="top:80%; left:15%;">📖</div>
+
+                <!-- Counter Overlay -->
+                <div class="counter-overlay">
+                    <div class="counter-title">BOOKS DISTRIBUTED</div>
+                    <div class="digit-box" id="digit-box-1">
+                        <div class="small-arrow">↑</div>
+                        <div class="digit-strip" id="d1"></div>
+                    </div>
+                    <div class="digit-box" id="digit-box-2">
+                        <div class="digit-strip" id="d2"></div>
+                    </div>
+                    <div class="digit-box" id="digit-box-3">
+                        <div class="digit-strip" id="d3"></div>
+                    </div>
+                    <div class="digit-box" id="digit-box-4">
+                        <div class="digit-strip" id="d4"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Final Message -->
+        <div id="final-message">
+            <div class="congrats-box">
+                <p class="congrats-text">🙏 Congratulations to All Devotees 🙏</p>
+                <p class="count-text">5000+ Bhagavad Gita Distributed</p>
+                <p class="sub-text">A milestone achieved through divine grace and dedicated service</p>
+                <p class="sub-text" style="margin-top:10px; color:var(--iskcon-gold); font-size:14px;">ISKCON Burla •
+                    Serving Since 2006</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Audio Elements -->
+    <audio id="sfx-tap" preload="auto">
+        <!-- Chime sound -->
+        <source src="freesound_community-text-scroll-g4-180-openmpt-agogo-39617.wav" type="audio/wav">
+    </audio>
+    <audio id="sfx-roll" preload="auto">
+        <!-- Rolling sound -->
+        <source src="freesound_community-text-scroll-g4-180-openmpt-agogo-39617.wav" type="audio/wav">
+    </audio>
+    <audio id="sfx-win" preload="auto">
+        <!-- Victory sound -->
+        <source src="freesound_community-text-scroll-g4-180-openmpt-agogo-39617.wav" type="audio/wav">
+    </audio>
+    <audio id="sfx-rocket" preload="auto">
+        <!-- Rocket sound -->
+        <source src="freesound_community-text-scroll-g4-180-openmpt-agogo-39617.wav" type="audio/wav">
+    </audio>
+
+    <script>
+        // Configuration
+        const config = {
+            targetCount: 5062,
+            imageCount: 50, // Number of floating images
+            duration: 8000, // 6.5 seconds total animation
+            soundEnabled: true,
+
+            // IMAGE SETUP INSTRUCTIONS:
+            // Replace these placeholder URLs with your actual image paths
+            // Place your 50 celebration images in a folder named "images" in the same directory as this HTML file
+            // Name them as: image1.jpg, image2.jpg, ..., image50.jpg
+            // Then update the imageBasePath to point to your images folder
+
+            // For local development structure:
+            // project-folder/
+            //   ├── index.html (this file)
+            //   └── images/
+            //         ├── image1.jpg
+            //         ├── image2.jpg
+            //         ├── ...
+            //         └── image50.jpg
+
+            // Current placeholder setup (using online placeholder images)
+            imageBasePath: "https://picsum.photos/seed/ISKCON",
+
+            // For local images, change to:
+            // imageBasePath: "images/image",
+
+            imageCategories: [
+                "book", "person", "temple", "celebration", "spiritual"
+            ]
+        };
+
+        // Global variables
+        let currentCount = 0;
+        let animationActive = false;
+        let rockets = [];
+        let confettiPieces = [];
+        const canvas = document.getElementById('image-canvas');
+        const strips = [
+            document.getElementById('d1'),
+            document.getElementById('d2'),
+            document.getElementById('d3'),
+            document.getElementById('d4')
+        ];
+        const digitBoxes = [
+            document.getElementById('digit-box-1'),
+            document.getElementById('digit-box-2'),
+            document.getElementById('digit-box-3'),
+            document.getElementById('digit-box-4')
+        ];
+
+        // Audio elements
+        const tapSound = document.getElementById('sfx-tap');
+        const rollSound = document.getElementById('sfx-roll');
+        const winSound = document.getElementById('sfx-win');
+        const rocketSound = document.getElementById('sfx-rocket');
+
+        // Initialize the page
+        function init() {
+            // Initialize digit strips
+            strips.forEach((strip, index) => {
+                // Create 0-9 digits plus an extra 0 for seamless loop
+                for (let i = 0; i <= 10; i++) {
+                    const digitDiv = document.createElement('div');
+                    digitDiv.className = 'digit';
+                    digitDiv.textContent = i % 10;
+                    strip.appendChild(digitDiv);
+                }
+                // Start at position 0
+                strip.style.transform = 'translateY(0px)';
+            });
+
+            // Add some initial decorative elements
+            createFloatingElements();
+
+            console.log("ISKCON Burla Celebration ready! Click the button to start.");
+        }
+
+        // Start the celebration experience
+function startExperience() {
+    // 🔓 Unlock audio on user click (browser-safe)
+    [tapSound, rollSound, winSound, rocketSound].forEach(sound => {
+        sound.muted = false;
+        sound.volume = config.soundEnabled ? 1 : 0;
+        sound.play().then(() => {
+            sound.pause();
+            sound.currentTime = 0;
+        }).catch(() => {});
+    });
+
+    // ▶ Tap sound
+    tapSound.currentTime = 0;
+    tapSound.play();
+
+    // Screen transition
+    const screen1 = document.getElementById('screen-1');
+    screen1.style.opacity = '0';
+
+    setTimeout(() => {
+        screen1.classList.add('hidden');
+
+        const screen2 = document.getElementById('screen-2');
+        screen2.style.display = 'block';
+
+        setTimeout(() => {
+            screen2.style.opacity = '1';
+
+            animationActive = true; // ✅ VERY IMPORTANT
+
+            initImageAnimation();
+            createRockets();
+            startCounting();
+            animateFloatingElements();
+
+        }, 50);
+    }, 500);
+}
+
+        // document.getElementById("sfx-roll").play();
+
+
+       
+
+        // Toggle sound on/off
+        function toggleSound() {
+            config.soundEnabled = !config.soundEnabled;
+            const toggleBtn = document.querySelector('.sound-toggle');
+            toggleBtn.textContent = config.soundEnabled ? '🔊' : '🔇';
+
+            const volume = config.soundEnabled ? 1 : 0;
+            tapSound.volume = volume;
+            rollSound.volume = volume;
+            winSound.volume = volume;
+            rocketSound.volume = volume;
+        }
+
+        // Create floating decorative elements
+        function createFloatingElements() {
+            const elements = ['🪈', '༒ 𝙺𝚁𝙸𝚂𝙷𝙽𝙰 ༒', '🙏', '📖', '꧁🪶꧂',
+                '༺🪶༻', '✨'];
+            const area = document.querySelector('.celebration-area');
+
+            for (let i = 0; i < 15; i++) {
+                const element = document.createElement('div');
+                element.className = 'floating-element floating-om';
+                element.textContent = elements[i % elements.length];
+                element.style.top = `${Math.random() * 80}%`;
+                element.style.left = `${Math.random() * 90}%`;
+                element.style.fontSize = `${20 + Math.random() * 25}px`;
+                element.style.animationDuration = `${15 + Math.random() * 20}s`;
+                area.appendChild(element);
+            }
+        }
+
+        // Animate floating elements
+        function animateFloatingElements() {
+            const elements = document.querySelectorAll('.floating-element');
+            elements.forEach(el => {
+                // Add random movement
+                const duration = 15 + Math.random() * 20;
+                el.style.animation = `floatAround ${duration}s infinite linear`;
+            });
+        }
+
+        // IMAGE FLOW ANIMATION
+        function initImageAnimation() {
+            const images = [];
+            const containerWidth = canvas.offsetWidth;
+            const containerHeight = canvas.offsetHeight;
+
+            for (let i = 0; i < config.imageCount; i++) {
+                const img = document.createElement('img');
+                img.className = 'falling-img';
+
+                // Use different image sources for variety
+                // For local images: `src="${config.imageBasePath}${(i % 50) + 1}.jpg"`
+                // For placeholder: use the line below
+                img.src = `${config.imageBasePath}${i + 1000}/${Math.floor(70 + Math.random() * 30)}/${Math.floor(70 + Math.random() * 30)}?${config.imageCategories[i % config.imageCategories.length]}`;
+
+                img.alt = `Celebration ${i + 1}`;
+                canvas.appendChild(img);
+
+                images.push({
+                    el: img,
+                    x: Math.random() * (containerWidth - 70),
+                    y: Math.random() * containerHeight,
+                    speed: 3 + Math.random() * 4, // Increased speed
+                    rotation: Math.random() * 360,
+                    rotationSpeed: (Math.random() - 0.5) * 3,
+                    scale: 0.8 + Math.random() * 0.4,
+                    scaleSpeed: 0.001 + Math.random() * 0.002,
+                    scaleDirection: Math.random() > 0.5 ? 1 : -1,
+                    jitterX: 0,
+                    jitterY: 0,
+                    lastJitter: 0
+                });
+            }
+
+            // Animation loop
+            function updateImages() {
+                if (!animationActive) return;
+
+                images.forEach(obj => {
+                    // Move downward (following big green arrow)
+                    obj.y += obj.speed;
+
+                    // Apply rotation
+                    obj.rotation += obj.rotationSpeed;
+
+                    // Apply pulsing scale
+                    obj.scale += obj.scaleSpeed * obj.scaleDirection;
+                    if (obj.scale > 1.2 || obj.scale < 0.8) {
+                        obj.scaleDirection *= -1;
+                    }
+
+                    // Add random jitter every 500ms
+                    const now = Date.now();
+                    if (now - obj.lastJitter > 500) {
+                        obj.jitterX = (Math.random() - 0.5) * 20;
+                        obj.jitterY = (Math.random() - 0.5) * 10;
+                        obj.lastJitter = now;
+                    }
+
+                    // Reset if below container
+                    if (obj.y > containerHeight) {
+                        obj.y = -70;
+                        obj.x = Math.random() * (containerWidth - 70);
+                    }
+
+                    // Apply transformation
+                    const translateX = obj.x + obj.jitterX;
+                    const translateY = obj.y + obj.jitterY;
+
+                    obj.el.style.transform = `
+                        translate3d(${translateX}px, ${translateY}px, 0)
+                        rotate(${obj.rotation}deg)
+                        scale(${obj.scale})
+                    `;
+                });
+
+                requestAnimationFrame(updateImages);
+            }
+
+            animationActive = true;
+            requestAnimationFrame(updateImages);
+        }
+
+        // Create rocket elements
+        function createRockets() {
+            const container = document.querySelector('.celebration-area');
+
+            for (let i = 0; i < 8; i++) {
+                const rocket = document.createElement('div');
+                rocket.className = 'rocket';
+                rocket.id = `rocket-${i}`;
+
+                const rocketBody = document.createElement('div');
+                rocketBody.className = 'rocket-body';
+
+                const rocketFin = document.createElement('div');
+                rocketFin.className = 'rocket-fin';
+
+                const rocketFire = document.createElement('div');
+                rocketFire.className = 'rocket-fire';
+
+                rocket.appendChild(rocketBody);
+                rocket.appendChild(rocketFin);
+                rocket.appendChild(rocketFire);
+
+                // Position rockets initially
+                rocket.style.left = `${10 + (i * 10)}%`;
+
+                container.appendChild(rocket);
+                rockets.push(rocket);
+            }
+        }
+
+        // Launch rockets
+        function launchRockets() {
+            if (!config.soundEnabled) return;
+
+            rocketSound.currentTime = 0;
+            rocketSound.volume = 0.3;
+            rocketSound.play().catch(e => console.log("Rocket sound error:", e));
+
+            rockets.forEach((rocket, index) => {
+                // Delay each rocket slightly
+                setTimeout(() => {
+                    rocket.style.opacity = '1';
+                    rocket.style.transition = 'transform 4s cubic-bezier(0.1, 0.8, 0.2, 1)';
+                    rocket.style.transform = `translateY(-${window.innerHeight + 200}px) rotate(${Math.random() * 20 - 10}deg)`;
+
+                    // Remove rocket after animation
+                    setTimeout(() => {
+                        rocket.style.opacity = '0';
+                    }, 4000);
+
+                }, index * 300);
+            });
+        }
+
+        // Create confetti
+        function createConfetti() {
+            const colors = ['#FF6600', '#FFD700', '#3366CC', '#FFFFFF', '#00FF00', '#FF00FF'];
+            const container = document.querySelector('.celebration-area');
+
+            for (let i = 0; i < 150; i++) {
+                const confetti = document.createElement('div');
+                confetti.className = 'confetti';
+                confetti.style.backgroundColor = colors[i % colors.length];
+                confetti.style.left = `${Math.random() * 100}%`;
+                confetti.style.top = `${Math.random() * 100}%`;
+                confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
+                confetti.style.width = `${8 + Math.random() * 10}px`;
+                confetti.style.height = `${8 + Math.random() * 10}px`;
+                confetti.style.opacity = '0.8';
+
+                container.appendChild(confetti);
+                confettiPieces.push(confetti);
+
+                // Animate confetti falling
+                animateConfetti(confetti, i);
+            }
+        }
+
+        // Animate individual confetti piece
+        function animateConfetti(confetti, index) {
+            const startX = parseFloat(confetti.style.left);
+            const startY = parseFloat(confetti.style.top);
+            const amplitude = 50 + Math.random() * 100;
+            const duration = 3000 + Math.random() * 3000;
+            const startTime = Date.now();
+
+            function fall() {
+                const elapsed = Date.now() - startTime;
+                const progress = elapsed / duration;
+
+                if (progress < 1) {
+                    // Parabolic fall with sway
+                    const sway = Math.sin(elapsed * 0.005 + index) * amplitude;
+                    const x = startX + sway * 0.1; // Convert to percentage
+                    const y = startY + progress * 100;
+
+                    confetti.style.left = `${x}%`;
+                    confetti.style.top = `${y}%`;
+                    confetti.style.opacity = 0.8 * (1 - progress);
+                    confetti.style.transform = `rotate(${elapsed * 0.2}deg)`;
+
+                    requestAnimationFrame(fall);
+                } else {
+                    confetti.remove();
+                }
+            }
+
+            requestAnimationFrame(fall);
+        }
+
+        // COUNTING SYSTEM
+        function startCounting() {
+            // Start rolling sound
+            rollSound.currentTime = 0;
+            rollSound.volume = 0.3;
+            rollSound.play().catch(e => console.log("Roll sound error:", e));
+
+            const startTime = Date.now();
+            const durations = [120, 250, 400, 600]; // Fastest to slowest digit
+
+            // Reset active digit highlighting
+            digitBoxes.forEach(box => box.classList.remove('active-digit'));
+            digitBoxes[3].classList.add('active-digit'); // Start with rightmost digit
+
+            function animate() {
+                if (!animationActive) return;
+
+                const now = Date.now();
+                const elapsed = now - startTime;
+                const progress = Math.min(elapsed / config.duration, 1);
+
+                // Easing function for smooth acceleration and deceleration
+                const easeProgress = progress < 0.5
+                    ? 2 * progress * progress
+                    : 1 - Math.pow(-2 * progress + 2, 2) / 2;
+
+                currentCount = Math.floor(easeProgress * config.targetCount);
+
+                updateCounter(currentCount, elapsed);
+
+                // Update active digit based on progress
+                updateActiveDigit(progress);
+
+                if (progress < 1) {
+                    requestAnimationFrame(animate);
+                } else {
+                    finishCelebration();
+                }
+            }
+
+            requestAnimationFrame(animate);
+        }
+
+        function updateCounter(num, elapsed) {
+            const str = num.toString().padStart(4, '0');
+
+            str.split('').forEach((digit, index) => {
+                const digitValue = parseInt(digit);
+                const strip = strips[index];
+
+                // Calculate position based on digit value
+                const position = -digitValue * 70; // 70px per digit
+
+                // Add slight bounce effect when changing
+                if (strip.currentPosition !== position) {
+                    strip.style.transition = 'transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1)';
+                    strip.style.transform = `translateY(${position}px)`;
+                    strip.currentPosition = position;
+                }
+            });
+        }
+
+        function updateActiveDigit(progress) {
+            // Determine which digit is currently rolling fastest
+            let activeIndex = 3; // Start with rightmost
+
+            if (progress > 0.7) activeIndex = 0;
+            else if (progress > 0.4) activeIndex = 1;
+            else if (progress > 0.1) activeIndex = 2;
+
+            // Update active digit highlighting
+            digitBoxes.forEach((box, index) => {
+                if (index === activeIndex) {
+                    box.classList.add('active-digit');
+                } else {
+                    box.classList.remove('active-digit');
+                }
+            });
+        }
+
+        // FINISH CELEBRATION
+        function finishCelebration() {
+            animationActive = false;
+
+            // Stop rolling sound
+            rollSound.pause();
+
+            // Play victory sound
+            winSound.currentTime = 0;
+            winSound.volume = 0.5;
+            winSound.play().catch(e => console.log("Win sound error:", e));
+
+            // Launch rockets
+            setTimeout(() => launchRockets(), 500);
+
+            // Create confetti
+            setTimeout(() => createConfetti(), 1000);
+
+            // Slow down and fade images
+            const images = document.querySelectorAll('.falling-img');
+            images.forEach(img => {
+                img.style.transition = 'transform 3s linear, opacity 3s ease';
+                img.style.opacity = '0.5';
+            });
+
+            // Add glow to counter
+            const counterOverlay = document.querySelector('.counter-overlay');
+            counterOverlay.classList.add('glow');
+            counterOverlay.style.borderColor = '#00FF00';
+            counterOverlay.style.boxShadow = '0 0 30px #00FF00';
+
+            // Show final message
+            setTimeout(() => {
+                document.getElementById('final-message').style.opacity = '1';
+            }, 1500);
+
+            // Add celebration text animation
+            const congratsText = document.querySelector('.congrats-text');
+            congratsText.style.animation = 'glow 2s infinite alternate';
+        }
+
+        // Initialize on load
+        window.addEventListener('load', init);
+
+        // Prevent context menu on long press
+        document.addEventListener('contextmenu', function (e) {
+            e.preventDefault();
+            return false;
+        });
+    </script>
+</body>
+
+</html>
