@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ISKCON Burla | 5062+ Bhagavad Gita Distribution</title>
+    <title>ISKCON Burla | 5000+ Bhagavad Gita Distribution</title>
     <style>
         :root {
             --iskcon-orange: #FF6600;
@@ -32,82 +32,17 @@
             position: fixed;
         }
 
-        /* SCREEN 1: INTRO - SUPER ANIMATED */
+        /* SCREEN 1: INTRO - MOBILE OPTIMIZED */
         #screen-1 {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             height: 100%;
-            background: linear-gradient(135deg, #1a0a00 0%, #000000 100%);
+            background: radial-gradient(circle at top, #1a0a00, #000);
             position: relative;
             overflow: hidden;
             padding: 20px;
-        }
-
-        /* Animated Background Elements */
-        .krishna-bg {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-
-        .floating-symbol {
-            position: absolute;
-            font-size: 28px;
-            opacity: 0;
-            animation: symbolFloat 20s linear infinite;
-            filter: drop-shadow(0 0 10px rgba(255, 215, 0, 0.5));
-            z-index: 0;
-            color: #FFD700;
-        }
-
-        @keyframes symbolFloat {
-            0% {
-                transform: translateY(100vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.7;
-            }
-            90% {
-                opacity: 0.7;
-            }
-            100% {
-                transform: translateY(-100px) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        .floating-text {
-            position: absolute;
-            font-size: 18px;
-            color: rgba(255, 215, 0, 0.7);
-            opacity: 0;
-            animation: textFloat 15s linear infinite;
-            font-weight: bold;
-            z-index: 0;
-            text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-            font-family: 'Arial', sans-serif;
-        }
-
-        @keyframes textFloat {
-            0% {
-                transform: translateY(100vh) translateX(0);
-                opacity: 0;
-            }
-            10% {
-                opacity: 0.8;
-            }
-            90% {
-                opacity: 0.8;
-            }
-            100% {
-                transform: translateY(-100px) translateX(50px);
-                opacity: 0;
-            }
         }
 
         .intro-bg {
@@ -117,21 +52,9 @@
             width: 100%;
             height: 100%;
             background:
-                radial-gradient(circle at 30% 30%, rgba(255, 200, 0, 0.2) 0%, transparent 40%),
-                radial-gradient(circle at 70% 70%, rgba(51, 102, 204, 0.15) 0%, transparent 40%),
-                radial-gradient(circle at 50% 20%, rgba(255, 100, 0, 0.15) 0%, transparent 40%);
-            animation: bgPulse 10s ease-in-out infinite alternate;
-        }
-
-        @keyframes bgPulse {
-            0% {
-                opacity: 0.4;
-                filter: hue-rotate(0deg);
-            }
-            100% {
-                opacity: 0.8;
-                filter: hue-rotate(20deg);
-            }
+                radial-gradient(circle, rgba(255, 200, 0, 0.15), transparent 60%);
+            filter: brightness(0.45);
+            z-index: 0;
         }
 
         .header-logo {
@@ -140,268 +63,115 @@
             text-align: center;
             margin-bottom: 20px;
             width: 100%;
-            animation: logoEntrance 1.5s ease-out;
-        }
-
-        @keyframes logoEntrance {
-            0% {
-                transform: translateY(-50px);
-                opacity: 0;
-            }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-            }
         }
 
         .logo-imge {
             font-family: 'Georgia', serif;
-            font-size: 36px;
+            font-size: 28px;
             font-weight: bold;
             color: gold;
             text-align: center;
-            padding: 15px 30px;
-            border-radius: 12px;
+            padding: 12px 20px;
+            border-radius: 8px;
             background: radial-gradient(circle, #2c1a00, #000);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.9);
-            letter-spacing: 2px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
+            letter-spacing: 1px;
             margin-bottom: 10px;
-            animation: logoGlow 3s infinite alternate, logoFloat 4s infinite ease-in-out;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid rgba(255, 215, 0, 0.3);
-        }
-
-        @keyframes logoGlow {
-            0% {
-                box-shadow: 0 0 20px rgba(255, 215, 0, 0.7),
-                            0 0 30px rgba(255, 215, 0, 0.4);
-            }
-            100% {
-                box-shadow: 0 0 30px rgba(255, 215, 0, 1),
-                            0 0 50px rgba(255, 215, 0, 0.6),
-                            0 0 70px rgba(255, 215, 0, 0.3);
-            }
-        }
-
-        @keyframes logoFloat {
-            0%, 100% {
-                transform: translateY(0) scale(1);
-            }
-            50% {
-                transform: translateY(-10px) scale(1.02);
-            }
-        }
-
-        .logo-imge::after {
-            content: '';
-            position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: linear-gradient(
-                45deg,
-                transparent 30%,
-                rgba(255, 215, 0, 0.3) 50%,
-                transparent 70%
-            );
-            animation: shine 3s infinite linear;
-            z-index: 1;
-        }
-
-        @keyframes shine {
-            0% {
-                transform: translateX(-100%) translateY(-100%) rotate(45deg);
-            }
-            100% {
-                transform: translateX(100%) translateY(100%) rotate(45deg);
-            }
         }
 
         .iskcon-name {
             color: white;
-            font-size: 28px;
+            font-size: 20px;
             font-weight: bold;
             text-align: center;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8),
-                         0 0 20px rgba(255, 215, 0, 0.5);
-            animation: nameGlow 3s infinite alternate;
-            margin-bottom: 5px;
-            letter-spacing: 3px;
-        }
-
-        @keyframes nameGlow {
-            0% {
-                text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8),
-                             0 0 15px rgba(255, 215, 0, 0.4);
-            }
-            100% {
-                text-shadow: 0 2px 20px rgba(0, 0, 0, 0.8),
-                             0 0 25px rgba(255, 215, 0, 0.7),
-                             0 0 35px rgba(255, 215, 0, 0.4);
-            }
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
         }
 
         .iskcon-burla {
-            color: #FFD700;
-            font-size: 22px;
+            color: var(--iskcon-gold);
+            font-size: 16px;
             margin-top: 5px;
-            letter-spacing: 4px;
-            font-weight: bold;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-            animation: burlaPulse 2s infinite alternate;
-        }
-
-        @keyframes burlaPulse {
-            0% {
-                opacity: 0.9;
-                transform: scale(1);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1.05);
-            }
+            letter-spacing: 1px;
         }
 
         .intro-title {
             color: white;
-            font-size: 26px;
+            font-size: 22px;
             text-align: center;
-            margin: 25px 0;
+            margin: 15px 0;
             z-index: 1;
             padding: 0 15px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
             background: linear-gradient(90deg, #ffdd00, #ff5722);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(255, 140, 0, 0.8);
-            animation: titleSparkle 3s infinite alternate, titleFloat 5s infinite ease-in-out;
-        }
-
-        @keyframes titleSparkle {
-            0% {
-                text-shadow: 0 0 15px rgba(255, 140, 0, 0.6);
-            }
-            100% {
-                text-shadow: 0 0 30px rgba(255, 140, 0, 1),
-                             0 0 40px rgba(255, 215, 0, 0.6);
-            }
-        }
-
-        @keyframes titleFloat {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-8px);
-            }
+            text-shadow: 0 0 20px rgba(255, 140, 0, 0.7);
         }
 
         h2 {
             color: #f5f5f5;
-            font-size: 18px;
+            font-size: 16px;
             text-align: center;
             margin: 15px 0;
             padding: 0 15px;
-            line-height: 1.5;
+            line-height: 1.4;
             z-index: 2;
-            animation: textGlow 3s infinite alternate, textReveal 2s ease-out;
-            max-width: 90%;
-        }
-
-        @keyframes textGlow {
-            0% {
-                text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
-            }
-            100% {
-                text-shadow: 0 0 10px rgba(255, 255, 255, 0.7),
-                             0 0 20px rgba(255, 215, 0, 0.4);
-            }
-        }
-
-        @keyframes textReveal {
-            0% {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
 
         .btn-click-me {
-            padding: 22px 50px;
-            font-size: 22px;
+            padding: 18px 40px;
+            font-size: 18px;
             font-weight: bold;
             border: none;
-            border-radius: 35px;
-            background: linear-gradient(90deg, #FF6600, #FF3300, #FF6600);
-            background-size: 200% 100%;
+            border-radius: 30px;
+            background: linear-gradient(45deg, var(--iskcon-orange), var(--iskcon-maroon));
             color: white;
             cursor: pointer;
-            animation: pulse 1.5s infinite, 
-                       float 3s infinite ease-in-out,
-                       btnShine 4s infinite linear,
-                       btnScale 0.5s ease-out;
-            box-shadow: 0 10px 30px rgba(255, 102, 0, 0.8);
+            animation: pulse 1.5s infinite, float 3s infinite ease-in-out;
+            box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
             z-index: 1;
             position: relative;
             overflow: hidden;
             transition: all 0.3s;
-            margin-top: 25px;
-            letter-spacing: 2px;
-        }
-
-        .btn-click-me:hover {
-            transform: scale(1.08);
-            box-shadow: 0 15px 40px rgba(255, 102, 0, 1);
-        }
-
-        @keyframes btnShine {
-            0% {
-                background-position: -200% center;
-            }
-            100% {
-                background-position: 200% center;
-            }
-        }
-
-        @keyframes btnScale {
-            0% {
-                transform: scale(0.8);
-                opacity: 0;
-            }
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
+            margin-top: 20px;
         }
 
         @keyframes pulse {
             0% {
                 transform: scale(1);
-                box-shadow: 0 10px 30px rgba(255, 102, 0, 0.6);
+                box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
             }
 
             50% {
                 transform: scale(1.05);
-                box-shadow: 0 15px 45px rgba(255, 102, 0, 1);
+                box-shadow: 0 12px 35px rgba(255, 102, 0, 0.6);
             }
 
             100% {
                 transform: scale(1);
-                box-shadow: 0 10px 30px rgba(255, 102, 0, 0.6);
+                box-shadow: 0 8px 25px rgba(255, 102, 0, 0.4);
             }
         }
 
         @keyframes float {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateY(0);
             }
+
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-5px);
             }
+        }
+
+        .floating-element {
+            position: absolute;
+            z-index: 1;
+            opacity: 0.35;
+            font-size: 24px;
+            user-select: none;
+            pointer-events: none;
         }
 
         /* SCREEN 2: MAIN CELEBRATION - MOBILE OPTIMIZED */
@@ -430,42 +200,31 @@
             cursor: pointer;
             z-index: 200;
             border: 2px solid var(--iskcon-gold);
-            animation: toggleGlow 2s infinite alternate;
         }
 
-        @keyframes toggleGlow {
-            0% {
-                box-shadow: 0 0 5px rgba(255, 215, 0, 0.3);
-            }
-            100% {
-                box-shadow: 0 0 15px rgba(255, 215, 0, 0.7),
-                            0 0 25px rgba(255, 215, 0, 0.4);
-            }
-        }
-
-        /* HEADER */
+        /* UPDATED HEADER - BIGGER AND ANIMATED */
         .main-header {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 75px;
-            background: rgba(0, 0, 0, 0.9);
+            height: 70px;
+            background: rgba(0, 0, 0, 0.85);
             display: flex;
             align-items: center;
             justify-content: center;
             z-index: 100;
-            border-bottom: 3px solid var(--iskcon-gold);
-            backdrop-filter: blur(10px);
-            padding: 0 15px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.8);
+            border-bottom: 2px solid var(--iskcon-gold);
+            backdrop-filter: blur(5px);
+            padding: 0 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
         }
 
         .header-content {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 5px;
+            gap: 3px;
             width: 100%;
             justify-content: center;
         }
@@ -477,19 +236,19 @@
         }
 
         .header-text h1 {
-            font-size: 24px;
+            font-size: 22px;
             margin-bottom: 0;
-            color: #FFD700;
+            color: var(--iskcon-gold);
             font-weight: bold;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.8);
-            letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            letter-spacing: 1px;
         }
 
         .header-text h2 {
-            font-size: 18px;
+            font-size: 16px;
             color: #fff;
             font-weight: normal;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
         }
 
         @keyframes headerGlow {
@@ -498,23 +257,23 @@
                              0 0 10px rgba(255, 215, 0, 0.3);
             }
             to {
-                text-shadow: 0 0 10px rgba(255, 215, 0, 0.9),
-                             0 0 20px rgba(255, 215, 0, 0.6),
+                text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+                             0 0 20px rgba(255, 215, 0, 0.5),
                              0 0 30px rgba(255, 215, 0, 0.3);
             }
         }
 
         .main-container {
             position: absolute;
-            top: 85px;
+            top: 80px;
             left: 10px;
             right: 10px;
             bottom: 10px;
             border: 3px solid var(--iskcon-gold);
-            background: rgba(0, 0, 0, 0.4);
+            background: rgba(0, 0, 0, 0.3);
             overflow: hidden;
-            border-radius: 15px;
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.4);
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
         }
 
         .celebration-area {
@@ -539,11 +298,11 @@
 
         .big-arrow {
             width: 90%;
-            height: 7px;
+            height: 6px;
             background: linear-gradient(90deg, #00ff00, #00cc00);
             position: relative;
-            border-radius: 4px;
-            box-shadow: 0 0 15px rgba(0, 255, 0, 0.8);
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
             animation: arrowPulse 1.5s infinite alternate;
         }
 
@@ -552,34 +311,34 @@
                 box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
             }
             to {
-                box-shadow: 0 0 25px rgba(0, 255, 0, 1),
-                            0 0 35px rgba(0, 255, 0, 0.6);
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.9),
+                            0 0 30px rgba(0, 255, 0, 0.5);
             }
         }
 
         .big-arrow::after {
             content: '';
             position: absolute;
-            right: -15px;
+            right: -12px;
             top: 50%;
             transform: translateY(-50%);
             width: 0;
             height: 0;
-            border-left: 20px solid #00cc00;
-            border-top: 15px solid transparent;
-            border-bottom: 15px solid transparent;
+            border-left: 15px solid #00cc00;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
         }
 
         .arrow-label {
             position: absolute;
-            top: -25px;
+            top: -20px;
             left: 0;
             width: 100%;
             text-align: center;
             color: #00ff00;
             font-weight: bold;
-            font-size: 14px;
-            text-shadow: 0 0 8px rgba(0, 255, 0, 0.8);
+            font-size: 12px;
+            text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
             animation: arrowLabelPulse 2s infinite alternate;
         }
 
@@ -590,8 +349,8 @@
             }
             to {
                 opacity: 1;
-                text-shadow: 0 0 15px rgba(0, 255, 0, 1),
-                             0 0 25px rgba(0, 255, 0, 0.8);
+                text-shadow: 0 0 10px rgba(0, 255, 0, 1),
+                             0 0 20px rgba(0, 255, 0, 0.7);
             }
         }
 
@@ -604,25 +363,14 @@
 
         .falling-img {
             position: absolute;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             object-fit: cover;
-            border-radius: 10px;
+            border-radius: 6px;
             will-change: transform;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
-            border: 2px solid rgba(255, 215, 0, 0.6);
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.3);
             transition: transform 0.2s, opacity 0.5s;
-            animation: imageGlow 3s infinite alternate;
-        }
-
-        @keyframes imageGlow {
-            0% {
-                box-shadow: 0 5px 15px rgba(0, 0, 0, 0.6);
-            }
-            100% {
-                box-shadow: 0 5px 25px rgba(255, 215, 0, 0.4),
-                            inset 0 0 15px rgba(255, 215, 0, 0.2);
-            }
         }
 
         .counter-overlay {
@@ -631,44 +379,44 @@
             left: 50%;
             transform: translate(-50%, -50%);
             display: flex;
-            gap: 8px;
+            gap: 6px;
             z-index: 30;
-            background: rgba(0, 0, 0, 0.9);
-            padding: 20px;
-            border-radius: 15px;
-            border: 3px solid var(--iskcon-gold);
-            box-shadow: 0 10px 35px rgba(0, 0, 0, 0.9);
-            min-width: 240px;
+            background: rgba(0, 0, 0, 0.85);
+            padding: 15px;
+            border-radius: 12px;
+            border: 2px solid var(--iskcon-gold);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+            min-width: 220px;
             max-width: 90%;
         }
 
         .counter-title {
             position: absolute;
-            top: -40px;
+            top: -35px;
             left: 0;
             width: 100%;
             text-align: center;
             color: var(--iskcon-gold);
-            font-size: 16px;
+            font-size: 14px;
             font-weight: bold;
         }
 
         .digit-box {
-            width: 45px;
-            height: 65px;
+            width: 40px;
+            height: 55px;
             background: #000;
             color: white;
             overflow: hidden;
             position: relative;
             border: 2px solid #444;
-            border-radius: 5px;
+            border-radius: 4px;
             flex: 1;
         }
 
         .active-digit {
             border-color: var(--iskcon-gold);
-            box-shadow: 0 0 15px var(--iskcon-gold);
-            transform: translateY(-5px);
+            box-shadow: 0 0 10px var(--iskcon-gold);
+            transform: translateY(-3px);
         }
 
         .digit-strip {
@@ -680,64 +428,70 @@
         }
 
         .digit {
-            height: 65px;
+            height: 55px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 32px;
+            font-size: 28px;
             font-weight: bold;
             font-family: 'Courier New', monospace;
         }
 
         .small-arrow {
             position: absolute;
-            top: -25px;
+            top: -20px;
             left: 50%;
             transform: translateX(-50%);
             color: #00ff00;
-            font-size: 20px;
+            font-size: 16px;
             font-weight: bold;
             animation: bounce 0.8s infinite;
         }
 
         @keyframes bounce {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: translateX(-50%) translateY(0);
             }
+
             50% {
-                transform: translateX(-50%) translateY(-5px);
+                transform: translateX(-50%) translateY(-3px);
             }
         }
 
         .floating-om {
-            font-size: 28px;
+            font-size: 24px;
             color: var(--iskcon-gold);
             animation: floatAround 20s infinite linear;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
         }
 
         @keyframes floatAround {
             0% {
                 transform: translate(0, 0) rotate(0deg);
             }
+
             25% {
-                transform: translate(60px, 40px) rotate(90deg);
+                transform: translate(50px, 30px) rotate(90deg);
             }
+
             50% {
-                transform: translate(40px, 60px) rotate(180deg);
+                transform: translate(30px, 50px) rotate(180deg);
             }
+
             75% {
-                transform: translate(-40px, 40px) rotate(270deg);
+                transform: translate(-30px, 30px) rotate(270deg);
             }
+
             100% {
                 transform: translate(0, 0) rotate(360deg);
             }
         }
 
-        /* FINAL MESSAGE */
+        /* UPDATED FINAL MESSAGE - MOVED HIGHER */
         #final-message {
             position: absolute;
-            bottom: 130px;
+            bottom: 120px; /* Changed from 10px to 120px to move higher */
             left: 50%;
             transform: translateX(-50%);
             width: 90%;
@@ -753,77 +507,76 @@
                 transform: translateX(-50%) translateY(0);
             }
             50% {
-                transform: translateX(-50%) translateY(-15px);
+                transform: translateX(-50%) translateY(-10px);
             }
         }
 
         .congrats-box {
-            background: rgba(0, 0, 0, 0.95);
-            border-radius: 20px;
-            padding: 25px;
-            border: 4px solid var(--iskcon-gold);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 1),
-                        0 0 50px rgba(255, 215, 0, 0.6),
-                        0 0 80px rgba(255, 215, 0, 0.3);
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            padding: 25px 20px;
+            border: 3px solid var(--iskcon-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9),
+                        0 0 40px rgba(255, 215, 0, 0.5),
+                        0 0 60px rgba(255, 215, 0, 0.3);
             margin: 0 auto;
             animation: boxGlow 2s infinite alternate;
-            backdrop-filter: blur(5px);
         }
 
         @keyframes boxGlow {
             from {
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 1),
-                            0 0 40px rgba(255, 215, 0, 0.5),
-                            0 0 60px rgba(255, 215, 0, 0.3);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9),
+                            0 0 30px rgba(255, 215, 0, 0.4),
+                            0 0 50px rgba(255, 215, 0, 0.2);
             }
             to {
-                box-shadow: 0 15px 40px rgba(0, 0, 0, 1),
-                            0 0 60px rgba(255, 215, 0, 0.7),
-                            0 0 90px rgba(255, 215, 0, 0.5);
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9),
+                            0 0 50px rgba(255, 215, 0, 0.6),
+                            0 0 70px rgba(255, 215, 0, 0.4);
             }
         }
 
         .congrats-text {
-            color: #FFD700;
-            font-size: 24px;
+            color: var(--iskcon-gold);
+            font-size: 22px;
             font-weight: bold;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.8);
+            margin-bottom: 12px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
             animation: textShine 3s infinite alternate;
         }
 
         @keyframes textShine {
             from {
-                color: #FFD700;
+                color: var(--iskcon-gold);
                 text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
             }
             to {
-                color: #fffacd;
-                text-shadow: 0 2px 20px rgba(255, 215, 0, 1),
-                             0 0 30px rgba(255, 215, 0, 0.7);
+                color: #ffed4e;
+                text-shadow: 0 2px 15px rgba(255, 215, 0, 0.8),
+                             0 0 20px rgba(255, 215, 0, 0.6);
             }
         }
 
         .count-text {
             color: white;
-            font-size: 26px;
+            font-size: 24px;
             font-weight: bold;
             margin-bottom: 10px;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
         }
 
         .sub-text {
             color: #eee;
-            font-size: 16px;
-            line-height: 1.5;
-            margin-bottom: 10px;
+            font-size: 15px;
+            line-height: 1.4;
+            margin-bottom: 8px;
         }
 
         .rocket {
             position: absolute;
             bottom: -100px;
-            width: 35px;
-            height: 85px;
+            width: 30px;
+            height: 75px;
             z-index: 25;
             opacity: 0;
         }
@@ -832,7 +585,7 @@
             width: 100%;
             height: 80%;
             background: linear-gradient(180deg, #FF6600, #FF3300);
-            border-radius: 10px 10px 0 0;
+            border-radius: 8px 8px 0 0;
             position: relative;
         }
 
@@ -841,38 +594,41 @@
             bottom: 0;
             width: 0;
             height: 0;
-            border-left: 18px solid transparent;
-            border-right: 18px solid transparent;
-            border-top: 25px solid #FF3300;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 20px solid #FF3300;
         }
 
         .rocket-fire {
             position: absolute;
-            bottom: -25px;
-            left: 8px;
+            bottom: -20px;
+            left: 5px;
             width: 20px;
-            height: 30px;
+            height: 25px;
             background: linear-gradient(180deg, #FFD700, #FF6600, #FF0000);
             border-radius: 50%;
-            filter: blur(4px);
+            filter: blur(3px);
             animation: firePulse 0.3s infinite;
         }
 
         @keyframes firePulse {
-            0%, 100% {
+
+            0%,
+            100% {
                 transform: scale(1);
                 opacity: 0.8;
             }
+
             50% {
-                transform: scale(1.3);
+                transform: scale(1.2);
                 opacity: 1;
             }
         }
 
         .confetti {
             position: absolute;
-            width: 10px;
-            height: 10px;
+            width: 8px;
+            height: 8px;
             z-index: 10;
             opacity: 0;
         }
@@ -883,12 +639,11 @@
 
         @keyframes glow {
             from {
-                box-shadow: 0 0 10px var(--iskcon-gold), 0 0 20px var(--iskcon-gold);
+                box-shadow: 0 0 8px var(--iskcon-gold), 0 0 15px var(--iskcon-gold);
             }
+
             to {
-                box-shadow: 0 0 20px var(--iskcon-gold), 
-                            0 0 30px var(--iskcon-gold), 
-                            0 0 40px var(--iskcon-gold);
+                box-shadow: 0 0 15px var(--iskcon-gold), 0 0 25px var(--iskcon-gold), 0 0 35px var(--iskcon-gold);
             }
         }
 
@@ -905,7 +660,7 @@
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: linear-gradient(90deg, transparent, var(--iskcon-gold), transparent);
         }
 
@@ -914,7 +669,7 @@
             bottom: 0;
             left: 0;
             width: 100%;
-            height: 6px;
+            height: 5px;
             background: linear-gradient(90deg, transparent, var(--iskcon-gold), transparent);
         }
 
@@ -929,70 +684,61 @@
         /* Adjustments for very small screens */
         @media (max-width: 360px) {
             .logo-imge {
-                font-size: 28px;
-                padding: 12px 20px;
+                font-size: 24px;
+                padding: 10px 15px;
             }
-            
-            .iskcon-name {
-                font-size: 22px;
-            }
-            
-            .iskcon-burla {
-                font-size: 18px;
-            }
-            
+
             .intro-title {
-                font-size: 22px;
-            }
-            
-            h2 {
-                font-size: 16px;
-            }
-            
-            .btn-click-me {
-                padding: 18px 40px;
                 font-size: 20px;
             }
-            
+
+            h2 {
+                font-size: 14px;
+            }
+
+            .btn-click-me {
+                padding: 15px 30px;
+                font-size: 16px;
+            }
+
             .header-text h1 {
                 font-size: 20px;
             }
-            
+
             .header-text h2 {
-                font-size: 16px;
+                font-size: 14px;
             }
-            
+
             #final-message {
-                bottom: 110px;
+                bottom: 100px;
             }
-            
+
             .congrats-text {
                 font-size: 20px;
             }
-            
+
             .count-text {
                 font-size: 22px;
             }
-            
+
             .counter-overlay {
-                min-width: 220px;
-                padding: 15px;
-                gap: 6px;
+                min-width: 200px;
+                padding: 12px;
+                gap: 4px;
             }
-            
+
             .digit-box {
-                width: 40px;
-                height: 60px;
-            }
-            
-            .digit {
-                height: 60px;
-                font-size: 28px;
-            }
-            
-            .falling-img {
-                width: 50px;
+                width: 35px;
                 height: 50px;
+            }
+
+            .digit {
+                height: 50px;
+                font-size: 24px;
+            }
+
+            .floating-om {
+                font-size: 20px;
             }
         }
 
@@ -1001,48 +747,43 @@
             .main-container {
                 left: 20px;
                 right: 20px;
-                top: 90px;
+                top: 80px;
                 bottom: 20px;
             }
-            
+
             .header-text h1 {
                 font-size: 28px;
             }
-            
+
             .header-text h2 {
-                font-size: 22px;
+                font-size: 20px;
             }
-            
+
             #final-message {
                 bottom: 150px;
-                width: 85%;
+                width: 80%;
             }
-            
+
             .congrats-text {
+                font-size: 26px;
+            }
+
+            .count-text {
                 font-size: 28px;
             }
-            
-            .count-text {
-                font-size: 30px;
-            }
-            
+
             .counter-overlay {
-                min-width: 280px;
+                min-width: 300px;
             }
-            
+
             .digit-box {
-                width: 55px;
-                height: 75px;
+                width: 50px;
+                height: 65px;
             }
-            
+
             .digit {
-                height: 75px;
-                font-size: 36px;
-            }
-            
-            .falling-img {
-                width: 70px;
-                height: 70px;
+                height: 65px;
+                font-size: 32px;
             }
         }
     </style>
@@ -1053,7 +794,6 @@
     <!-- SCREEN 1: INTRO -->
     <div id="screen-1">
         <div class="intro-bg"></div>
-        <div class="krishna-bg" id="krishna-bg"></div>
 
         <div class="header-logo">
             <div class="logo-imge">Hare Krishna</div>
@@ -1064,6 +804,10 @@
         <h1 class="intro-title">Gita Marathon 2025</h1>
         <h2>To see the final details of book marathon 2025 click below</h2>
         <button class="btn-click-me" onclick="startExperience()">CLICK</button>
+
+        <!-- Decorative elements -->
+        <div class="floating-element" style="top:20%; left:5%;">༒ 𝙷𝙰𝚁𝙴 𝙺𝚁𝙸𝚂𝙷𝙽𝙰 ༒</div>
+        <div class="floating-element" style="top:70%; left:85%;">📿</div>
     </div>
 
     <!-- SCREEN 2: MAIN CELEBRATION -->
@@ -1120,13 +864,13 @@
             </div>
         </div>
 
-        <!-- Final Message -->
+        <!-- UPDATED: Final Message moved higher with enhanced styling -->
         <div id="final-message">
             <div class="congrats-box">
                 <p class="congrats-text">🙏 Congratulations to All Devotees 🙏</p>
                 <p class="count-text">5000+ Bhagavad Gita Distributed</p>
                 <p class="sub-text">A milestone achieved through divine grace and dedicated service</p>
-                <p class="sub-text" style="margin-top:12px; color:#FFD700; font-size:15px; font-weight:bold;">ISKCON Burla • Serving Since 2006</p>
+                <p class="sub-text" style="margin-top:10px; color:var(--iskcon-gold); font-size:14px; font-weight:bold;">ISKCON Burla • Serving Since 2006</p>
             </div>
         </div>
     </div>
@@ -1149,35 +893,14 @@
         // Configuration
         const config = {
             targetCount: 5062,
-            imageCount: 40, // More images for better visual effect
+            imageCount: 30,
             duration: 8000,
             soundEnabled: true,
             
-            // Krishna images from Pexels (free to use, no attribution required)
-            krishnaImages: [
-                "https://images.pexels.com/photos/10730758/pexels-photo-10730758.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730757/pexels-photo-10730757.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730756/pexels-photo-10730756.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730755/pexels-photo-10730755.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730754/pexels-photo-10730754.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730753/pexels-photo-10730753.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730752/pexels-photo-10730752.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730751/pexels-photo-10730751.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730750/pexels-photo-10730750.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730749/pexels-photo-10730749.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730748/pexels-photo-10730748.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730747/pexels-photo-10730747.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730746/pexels-photo-10730746.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730745/pexels-photo-10730745.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730744/pexels-photo-10730744.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730743/pexels-photo-10730743.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730742/pexels-photo-10730742.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730741/pexels-photo-10730741.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730740/pexels-photo-10730740.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2",
-                "https://images.pexels.com/photos/10730739/pexels-photo-10730739.jpeg?auto=compress&cs=tinysrgb&w=150&h=150&dpr=2"
-            ],
+            // For local images
+            imageBasePath: "",
             
-            // User's local images (fallback)
+            // Using your actual image filenames
             imageFilenames: [
                 "image1.jpg", "image2.jpg", "image3.jpg", "image4.jpg", "image5.jpg",
                 "image6.jpg", "image7.jpg", "image8.jpg", "image9.jpg", "image10.jpg",
@@ -1185,11 +908,7 @@
                 "image16.jpg", "image17.jpg", "image18.jpg", "image19.jpg", "image20.jpg",
                 "image21.jpg", "image22.jpg", "image23.jpg", "image24.jpg", "image25.jpg",
                 "image26.jpg"
-            ],
-            
-            // Floating symbols for Screen 1 background (only allowed symbols)
-            floatingSymbols: ["📿", "🙏", "🪶", "✨", "🌟", "⭐", "💫", "🔔", "🎵", "🎶"],
-            floatingTexts: ["Hare Krishna", "Jai Shri Krishna", "Shri Krishna", "Krishna"]
+            ]
         };
 
         // Global variables
@@ -1236,41 +955,7 @@
                 strip.currentPosition = 0;
             });
 
-            // Create animated background for Screen 1
-            createAnimatedBackground();
-            
             console.log("ISKCON Burla Celebration ready! Click the button to start.");
-        }
-
-        // Create animated background for Screen 1
-        function createAnimatedBackground() {
-            const krishnaBg = document.getElementById('krishna-bg');
-            
-            // Create floating symbols
-            for (let i = 0; i < 20; i++) {
-                const symbol = document.createElement('div');
-                symbol.className = 'floating-symbol';
-                symbol.textContent = config.floatingSymbols[Math.floor(Math.random() * config.floatingSymbols.length)];
-                symbol.style.left = `${Math.random() * 100}%`;
-                symbol.style.fontSize = `${24 + Math.random() * 20}px`;
-                symbol.style.animationDelay = `${Math.random() * 5}s`;
-                symbol.style.animationDuration = `${15 + Math.random() * 15}s`;
-                symbol.style.opacity = `${0.3 + Math.random() * 0.4}`;
-                krishnaBg.appendChild(symbol);
-            }
-            
-            // Create floating text
-            for (let i = 0; i < 12; i++) {
-                const text = document.createElement('div');
-                text.className = 'floating-text';
-                text.textContent = config.floatingTexts[Math.floor(Math.random() * config.floatingTexts.length)];
-                text.style.left = `${Math.random() * 100}%`;
-                text.style.fontSize = `${16 + Math.random() * 12}px`;
-                text.style.animationDelay = `${Math.random() * 3}s`;
-                text.style.animationDuration = `${12 + Math.random() * 10}s`;
-                text.style.opacity = `${0.4 + Math.random() * 0.4}`;
-                krishnaBg.appendChild(text);
-            }
         }
 
         // Start the celebration experience
@@ -1322,7 +1007,7 @@
             rocketSound.volume = volume;
         }
 
-        // IMAGE FLOW ANIMATION - ENHANCED WITH BETTER IMAGES
+        // IMAGE FLOW ANIMATION - MOBILE OPTIMIZED
         function initImageAnimation() {
             const images = [];
             const containerWidth = canvas.offsetWidth;
@@ -1332,81 +1017,61 @@
                 const img = document.createElement('img');
                 img.className = 'falling-img';
 
-                // Use Krishna images from Pexels (reliable source)
-                const krishnaIndex = i % config.krishnaImages.length;
-                img.src = config.krishnaImages[krishnaIndex];
-                img.alt = `Krishna ${i + 1}`;
-                
-                // Preload image and handle errors
-                img.onload = function() {
-                    this.style.opacity = '1';
-                };
-                
+                // Use local images if available, otherwise placeholder
+                if (config.imageFilenames && config.imageFilenames.length > 0) {
+                    const imageIndex = i % config.imageFilenames.length;
+                    img.src = config.imageBasePath + config.imageFilenames[imageIndex];
+                } else {
+                    // Placeholder
+                    img.src = `https://picsum.photos/seed/ISKCON${i}/50/50`;
+                }
+
+                img.alt = `Celebration ${i + 1}`;
                 img.onerror = function() {
-                    // Fallback if Krishna image fails to load
-                    const fallbackIndex = i % 10;
-                    this.src = `https://source.unsplash.com/collection/1163637/150x150?sig=${i}`;
-                    this.style.background = `linear-gradient(45deg, 
-                        hsl(${i * 137 % 360}, 70%, 50%), 
-                        hsl(${(i * 137 + 60) % 360}, 70%, 50%))`;
+                    // Fallback if image fails to load
+                    this.style.background = `linear-gradient(45deg, hsl(${i * 137 % 360}, 70%, 60%), hsl(${(i * 137 + 60) % 360}, 70%, 60%))`;
                     this.style.display = 'flex';
                     this.style.alignItems = 'center';
                     this.style.justifyContent = 'center';
-                    this.innerHTML = `<div style="color: white; text-align: center; font-weight: bold; padding: 5px; font-size: 12px;">
-                        Krishna<br>Blessing
-                    </div>`;
+                    this.innerHTML = `<div style="color: white; font-size: 10px; text-align: center;">Gita<br>${i+1}</div>`;
                 };
                 
                 canvas.appendChild(img);
 
                 images.push({
                     el: img,
-                    x: Math.random() * (containerWidth - 60),
-                    y: -100 - Math.random() * 200,
-                    speed: 2 + Math.random() * 4,
+                    x: Math.random() * (containerWidth - 50),
+                    y: -100 + Math.random() * containerHeight,
+                    speed: 2 + Math.random() * 3,
                     rotation: Math.random() * 360,
-                    rotationSpeed: (Math.random() - 0.5) * 3,
-                    scale: 0.8 + Math.random() * 0.4,
-                    scaleSpeed: 0.001 + Math.random() * 0.002,
+                    rotationSpeed: (Math.random() - 0.5) * 2,
+                    scale: 0.7 + Math.random() * 0.3,
+                    scaleSpeed: 0.0005 + Math.random() * 0.001,
                     scaleDirection: Math.random() > 0.5 ? 1 : -1,
-                    swing: Math.random() * Math.PI * 2,
-                    swingSpeed: 0.01 + Math.random() * 0.02,
-                    swingAmplitude: 10 + Math.random() * 20,
                 });
             }
 
             // Animation loop
-            let lastTime = 0;
-            function updateImages(timestamp) {
+            function updateImages() {
                 if (!animationActive) return;
 
-                if (!lastTime) lastTime = timestamp;
-                const deltaTime = timestamp - lastTime;
-                lastTime = timestamp;
-
                 images.forEach(obj => {
-                    obj.y += obj.speed * (deltaTime / 16); // Normalize to 60fps
+                    obj.y += obj.speed;
                     obj.rotation += obj.rotationSpeed;
-                    obj.swing += obj.swingSpeed;
 
-                    // Apply pulsing scale
                     obj.scale += obj.scaleSpeed * obj.scaleDirection;
-                    if (obj.scale > 1.2 || obj.scale < 0.8) {
+                    if (obj.scale > 1.0 || obj.scale < 0.7) {
                         obj.scaleDirection *= -1;
                     }
 
-                    // Add swinging motion
-                    const swingOffset = Math.sin(obj.swing) * obj.swingAmplitude;
-
                     // Reset if below container
-                    if (obj.y > containerHeight + 100) {
-                        obj.y = -100;
-                        obj.x = Math.random() * (containerWidth - 60);
-                        obj.swing = Math.random() * Math.PI * 2;
+                    if (obj.y > containerHeight) {
+                        obj.y = -50;
+                        obj.x = Math.random() * (containerWidth - 50);
                     }
 
                     obj.el.style.transform = `
-                        translate3d(${obj.x + swingOffset}px, ${obj.y}px, 0)
+                        translate3d(${obj.x}px, ${obj.y}px, 0)
                         rotate(${obj.rotation}deg)
                         scale(${obj.scale})
                     `;
@@ -1422,7 +1087,7 @@
         function createRockets() {
             const container = document.querySelector('.celebration-area');
 
-            for (let i = 0; i < 6; i++) {
+            for (let i = 0; i < 5; i++) {
                 const rocket = document.createElement('div');
                 rocket.className = 'rocket';
                 rocket.id = `rocket-${i}`;
@@ -1440,7 +1105,7 @@
                 rocket.appendChild(rocketFin);
                 rocket.appendChild(rocketFire);
 
-                rocket.style.left = `${8 + (i * 17)}%`;
+                rocket.style.left = `${10 + (i * 20)}%`;
 
                 container.appendChild(rocket);
                 rockets.push(rocket);
@@ -1459,13 +1124,13 @@
                 setTimeout(() => {
                     rocket.style.opacity = '1';
                     rocket.style.transition = 'transform 3s cubic-bezier(0.1, 0.8, 0.2, 1)';
-                    rocket.style.transform = `translateY(-${window.innerHeight + 200}px) rotate(${Math.random() * 15 - 7.5}deg)`;
+                    rocket.style.transform = `translateY(-${window.innerHeight + 200}px) rotate(${Math.random() * 10 - 5}deg)`;
 
                     setTimeout(() => {
                         rocket.style.opacity = '0';
                     }, 3000);
 
-                }, index * 300);
+                }, index * 400);
             });
         }
 
@@ -1474,16 +1139,14 @@
             const colors = ['#FF6600', '#FFD700', '#3366CC', '#FFFFFF', '#00FF00'];
             const container = document.querySelector('.celebration-area');
 
-            for (let i = 0; i < 100; i++) {
+            for (let i = 0; i < 80; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.backgroundColor = colors[i % colors.length];
                 confetti.style.left = `${Math.random() * 100}%`;
                 confetti.style.top = `${Math.random() * 100}%`;
                 confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '0';
-                confetti.style.opacity = '0.9';
-                confetti.style.width = `${6 + Math.random() * 8}px`;
-                confetti.style.height = `${6 + Math.random() * 8}px`;
+                confetti.style.opacity = '0.8';
 
                 container.appendChild(confetti);
                 confettiPieces.push(confetti);
@@ -1496,7 +1159,7 @@
         function animateConfetti(confetti, index) {
             const startX = parseFloat(confetti.style.left);
             const startY = parseFloat(confetti.style.top);
-            const amplitude = 40 + Math.random() * 80;
+            const amplitude = 30 + Math.random() * 70;
             const duration = 2000 + Math.random() * 2000;
             const startTime = Date.now();
 
@@ -1511,8 +1174,8 @@
 
                     confetti.style.left = `${x}%`;
                     confetti.style.top = `${y}%`;
-                    confetti.style.opacity = 0.9 * (1 - progress);
-                    confetti.style.transform = `rotate(${elapsed * 0.3}deg)`;
+                    confetti.style.opacity = 0.8 * (1 - progress);
+                    confetti.style.transform = `rotate(${elapsed * 0.2}deg)`;
 
                     requestAnimationFrame(fall);
                 } else {
@@ -1569,7 +1232,7 @@
                 
                 if (!strip) return;
                 
-                const position = -digitValue * 65;
+                const position = -digitValue * 55;
                 
                 if (strip.currentPosition !== position) {
                     strip.style.transform = `translateY(${position}px)`;
@@ -1609,15 +1272,14 @@
 
             const images = document.querySelectorAll('.falling-img');
             images.forEach(img => {
-                img.style.transition = 'opacity 2s ease, transform 2s ease';
-                img.style.opacity = '0.5';
-                img.style.transform += ' scale(1.1)';
+                img.style.transition = 'opacity 2s ease';
+                img.style.opacity = '0.4';
             });
 
             const counterOverlay = document.querySelector('.counter-overlay');
             counterOverlay.classList.add('glow');
             counterOverlay.style.borderColor = '#00FF00';
-            counterOverlay.style.boxShadow = '0 0 25px #00FF00';
+            counterOverlay.style.boxShadow = '0 0 20px #00FF00';
 
             setTimeout(() => {
                 const finalMessage = document.getElementById('final-message');
@@ -1640,24 +1302,6 @@
         document.addEventListener('contextmenu', function (e) {
             e.preventDefault();
             return false;
-        });
-
-        // Handle orientation change
-        window.addEventListener('orientationchange', function() {
-            setTimeout(() => {
-                if (animationActive) {
-                    // Reinitialize image positions on orientation change
-                    const canvas = document.getElementById('image-canvas');
-                    const images = document.querySelectorAll('.falling-img');
-                    const containerWidth = canvas.offsetWidth;
-                    
-                    images.forEach(img => {
-                        const currentTransform = window.getComputedStyle(img).transform;
-                        // Reset position to within bounds
-                        img.style.left = `${Math.random() * (containerWidth - 60)}px`;
-                    });
-                }
-            }, 300);
         });
     </script>
 </body>
