@@ -202,13 +202,14 @@
             border: 2px solid var(--iskcon-gold);
         }
 
+        /* UPDATED HEADER - BIGGER AND ANIMATED */
         .main-header {
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 60px;
-            background: rgba(0, 0, 0, 0.7);
+            height: 70px;
+            background: rgba(0, 0, 0, 0.85);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -216,12 +217,14 @@
             border-bottom: 2px solid var(--iskcon-gold);
             backdrop-filter: blur(5px);
             padding: 0 10px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
         }
 
         .header-content {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 10px;
+            gap: 3px;
             width: 100%;
             justify-content: center;
         }
@@ -229,23 +232,40 @@
         .header-text {
             color: white;
             text-align: center;
+            animation: headerGlow 2s infinite alternate;
         }
 
         .header-text h1 {
-            font-size: 16px;
-            margin-bottom: 2px;
+            font-size: 22px;
+            margin-bottom: 0;
             color: var(--iskcon-gold);
+            font-weight: bold;
+            text-shadow: 0 0 10px rgba(255, 215, 0, 0.7);
+            letter-spacing: 1px;
         }
 
         .header-text h2 {
-            font-size: 12px;
+            font-size: 16px;
             color: #fff;
             font-weight: normal;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+        }
+
+        @keyframes headerGlow {
+            from {
+                text-shadow: 0 0 5px rgba(255, 215, 0, 0.5),
+                             0 0 10px rgba(255, 215, 0, 0.3);
+            }
+            to {
+                text-shadow: 0 0 10px rgba(255, 215, 0, 0.8),
+                             0 0 20px rgba(255, 215, 0, 0.5),
+                             0 0 30px rgba(255, 215, 0, 0.3);
+            }
         }
 
         .main-container {
             position: absolute;
-            top: 70px;
+            top: 80px;
             left: 10px;
             right: 10px;
             bottom: 10px;
@@ -283,6 +303,17 @@
             position: relative;
             border-radius: 3px;
             box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            animation: arrowPulse 1.5s infinite alternate;
+        }
+
+        @keyframes arrowPulse {
+            from {
+                box-shadow: 0 0 10px rgba(0, 255, 0, 0.7);
+            }
+            to {
+                box-shadow: 0 0 20px rgba(0, 255, 0, 0.9),
+                            0 0 30px rgba(0, 255, 0, 0.5);
+            }
         }
 
         .big-arrow::after {
@@ -308,6 +339,19 @@
             font-weight: bold;
             font-size: 12px;
             text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+            animation: arrowLabelPulse 2s infinite alternate;
+        }
+
+        @keyframes arrowLabelPulse {
+            from {
+                opacity: 0.8;
+                text-shadow: 0 0 5px rgba(0, 255, 0, 0.7);
+            }
+            to {
+                opacity: 1;
+                text-shadow: 0 0 10px rgba(0, 255, 0, 1),
+                             0 0 20px rgba(0, 255, 0, 0.7);
+            }
         }
 
         #image-canvas {
@@ -444,45 +488,88 @@
             }
         }
 
+        /* UPDATED FINAL MESSAGE - MOVED HIGHER */
         #final-message {
             position: absolute;
-            bottom: 10px;
-            width: 100%;
+            bottom: 120px; /* Changed from 10px to 120px to move higher */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
             text-align: center;
             opacity: 0;
-            transition: opacity 1s ease;
-            padding: 0 15px;
+            transition: opacity 1s ease, transform 0.5s ease;
             z-index: 40;
+            animation: messageFloat 3s infinite ease-in-out;
+        }
+
+        @keyframes messageFloat {
+            0%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            50% {
+                transform: translateX(-50%) translateY(-10px);
+            }
         }
 
         .congrats-box {
-            background: rgba(0, 0, 0, 0.85);
-            border-radius: 12px;
-            padding: 20px;
-            border: 2px solid var(--iskcon-gold);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.7);
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 15px;
+            padding: 25px 20px;
+            border: 3px solid var(--iskcon-gold);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9),
+                        0 0 40px rgba(255, 215, 0, 0.5),
+                        0 0 60px rgba(255, 215, 0, 0.3);
             margin: 0 auto;
+            animation: boxGlow 2s infinite alternate;
+        }
+
+        @keyframes boxGlow {
+            from {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9),
+                            0 0 30px rgba(255, 215, 0, 0.4),
+                            0 0 50px rgba(255, 215, 0, 0.2);
+            }
+            to {
+                box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9),
+                            0 0 50px rgba(255, 215, 0, 0.6),
+                            0 0 70px rgba(255, 215, 0, 0.4);
+            }
         }
 
         .congrats-text {
             color: var(--iskcon-gold);
-            font-size: 18px;
+            font-size: 22px;
             font-weight: bold;
-            margin-bottom: 10px;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+            margin-bottom: 12px;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+            animation: textShine 3s infinite alternate;
+        }
+
+        @keyframes textShine {
+            from {
+                color: var(--iskcon-gold);
+                text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+            }
+            to {
+                color: #ffed4e;
+                text-shadow: 0 2px 15px rgba(255, 215, 0, 0.8),
+                             0 0 20px rgba(255, 215, 0, 0.6);
+            }
         }
 
         .count-text {
             color: white;
-            font-size: 20px;
+            font-size: 24px;
             font-weight: bold;
-            margin-bottom: 8px;
+            margin-bottom: 10px;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
         }
 
         .sub-text {
-            color: #ddd;
-            font-size: 14px;
+            color: #eee;
+            font-size: 15px;
             line-height: 1.4;
+            margin-bottom: 8px;
         }
 
         .rocket {
@@ -614,6 +701,26 @@
                 font-size: 16px;
             }
 
+            .header-text h1 {
+                font-size: 20px;
+            }
+
+            .header-text h2 {
+                font-size: 14px;
+            }
+
+            #final-message {
+                bottom: 100px;
+            }
+
+            .congrats-text {
+                font-size: 20px;
+            }
+
+            .count-text {
+                font-size: 22px;
+            }
+
             .counter-overlay {
                 min-width: 200px;
                 padding: 12px;
@@ -642,6 +749,27 @@
                 right: 20px;
                 top: 80px;
                 bottom: 20px;
+            }
+
+            .header-text h1 {
+                font-size: 28px;
+            }
+
+            .header-text h2 {
+                font-size: 20px;
+            }
+
+            #final-message {
+                bottom: 150px;
+                width: 80%;
+            }
+
+            .congrats-text {
+                font-size: 26px;
+            }
+
+            .count-text {
+                font-size: 28px;
             }
 
             .counter-overlay {
@@ -736,13 +864,13 @@
             </div>
         </div>
 
-        <!-- Final Message -->
+        <!-- UPDATED: Final Message moved higher with enhanced styling -->
         <div id="final-message">
             <div class="congrats-box">
                 <p class="congrats-text">🙏 Congratulations to All Devotees 🙏</p>
                 <p class="count-text">5000+ Bhagavad Gita Distributed</p>
                 <p class="sub-text">A milestone achieved through divine grace and dedicated service</p>
-                <p class="sub-text" style="margin-top:8px; color:var(--iskcon-gold); font-size:13px;">ISKCON Burla • Serving Since 2006</p>
+                <p class="sub-text" style="margin-top:10px; color:var(--iskcon-gold); font-size:14px; font-weight:bold;">ISKCON Burla • Serving Since 2006</p>
             </div>
         </div>
     </div>
@@ -765,14 +893,11 @@
         // Configuration
         const config = {
             targetCount: 5062,
-            imageCount: 30, // Reduced for mobile performance
+            imageCount: 30,
             duration: 8000,
             soundEnabled: true,
             
-            // For local images - adjust according to your setup
-            // Example: if images are in an "images" folder
-            // imageBasePath: "images/image",
-            // Or if they're in the same folder:
+            // For local images
             imageBasePath: "",
             
             // Using your actual image filenames
@@ -916,8 +1041,8 @@
                 images.push({
                     el: img,
                     x: Math.random() * (containerWidth - 50),
-                    y: -100 + Math.random() * containerHeight, // Start above container
-                    speed: 2 + Math.random() * 3, // Slower for mobile
+                    y: -100 + Math.random() * containerHeight,
+                    speed: 2 + Math.random() * 3,
                     rotation: Math.random() * 360,
                     rotationSpeed: (Math.random() - 0.5) * 2,
                     scale: 0.7 + Math.random() * 0.3,
@@ -962,7 +1087,7 @@
         function createRockets() {
             const container = document.querySelector('.celebration-area');
 
-            for (let i = 0; i < 5; i++) { // Reduced number for mobile
+            for (let i = 0; i < 5; i++) {
                 const rocket = document.createElement('div');
                 rocket.className = 'rocket';
                 rocket.id = `rocket-${i}`;
@@ -1014,7 +1139,7 @@
             const colors = ['#FF6600', '#FFD700', '#3366CC', '#FFFFFF', '#00FF00'];
             const container = document.querySelector('.celebration-area');
 
-            for (let i = 0; i < 80; i++) { // Reduced for mobile
+            for (let i = 0; i < 80; i++) {
                 const confetti = document.createElement('div');
                 confetti.className = 'confetti';
                 confetti.style.backgroundColor = colors[i % colors.length];
@@ -1107,7 +1232,7 @@
                 
                 if (!strip) return;
                 
-                const position = -digitValue * 55; // Adjusted for mobile digit height
+                const position = -digitValue * 55;
                 
                 if (strip.currentPosition !== position) {
                     strip.style.transform = `translateY(${position}px)`;
@@ -1157,11 +1282,17 @@
             counterOverlay.style.boxShadow = '0 0 20px #00FF00';
 
             setTimeout(() => {
-                document.getElementById('final-message').style.opacity = '1';
+                const finalMessage = document.getElementById('final-message');
+                finalMessage.style.opacity = '1';
+                // Add extra animation when appearing
+                finalMessage.style.transform = 'translateX(-50%) scale(1.05)';
+                setTimeout(() => {
+                    finalMessage.style.transform = 'translateX(-50%) scale(1)';
+                }, 300);
             }, 1500);
 
             const congratsText = document.querySelector('.congrats-text');
-            congratsText.style.animation = 'glow 2s infinite alternate';
+            congratsText.style.animation = 'textShine 3s infinite alternate';
         }
 
         // Initialize on load
